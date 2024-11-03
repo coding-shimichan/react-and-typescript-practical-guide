@@ -26,4 +26,14 @@ function add(a: number, b: number): number {
   return result;
 }
 
+function calculate(
+  a: number,
+  b: number,
+  calcFn: (a: number, b: number) => number
+) {
+  return calcFn(a, b);
+}
+
+console.info(calculate(2, 5, add));
+
 export {};
