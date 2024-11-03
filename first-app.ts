@@ -18,4 +18,8 @@ user = {
   id: "abc",
 };
 
+let hobbies: string[];
+hobbies = ["Playing guitar", "Walking", "Cooking"];
+
+
 export {};
