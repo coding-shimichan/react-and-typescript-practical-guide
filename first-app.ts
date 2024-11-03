@@ -42,9 +42,29 @@ interface Credentials {
   email: string;
 }
 
+interface Credentials {
+  mode: string;
+}
+
 let creds: Credentials;
 creds = {
   password: "abc",
   email: "test@example.com",
+  mode: "logged in",
 };
+
+class AuthCredentials implements Credentials {
+  password: string;
+  email: string;
+  mode: string;
+  userName: string;
+}
+
+function login(credentials: Credentials) {
+  console.log(credentials);
+}
+
+login(creds);
+login(new AuthCredentials());
+
 export {};
