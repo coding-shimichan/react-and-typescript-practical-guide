@@ -108,4 +108,41 @@ function performAction(action: string | number, role: Role) {
   }
 }
 
+let roles: Array<Role>;
+roles = ["admin", "user"];
+
+type DataStorage<T> = {
+  storage: T[];
+  add: (data: T) => void;
+};
+
+const textStorage: DataStorage<string> = {
+  storage: [],
+  add(data) {
+    this.storage.push(data);
+  },
+};
+
+const userStorage: DataStorage<User> = {
+  storage: [],
+  add(data) {
+    this.storage.push(data);
+  },
+};
+
+function merge<T, U>(a: T, b: U) {
+  return {
+    ...a,
+    ...b,
+  };
+}
+
+// const newUser = merge<{ name: string }, { age: number }>(
+//   { name: "Max" },
+//   { age: 34 }
+// );
+
+const newUser = merge({ name: "Max" }, { age: 34 });
+newUser.age;
+
 export {};
